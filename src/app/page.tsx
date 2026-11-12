@@ -1,103 +1,101 @@
-import Image from "next/image";
+import {
+  ArrowRight,
+  Boxes,
+  FileCheck,
+  Moon,
+  Palette,
+  Smartphone,
+  Zap,
+} from "lucide-react"
+import Link from "next/link"
 
-export default function Home() {
+import { FeatureCard } from "@/components/home/feature-card"
+import { Badge } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+
+const features = [
+  {
+    icon: Zap,
+    title: "Next.js 15 App Router",
+    description: "서버 컴포넌트와 파일 기반 라우팅으로 빠르게 시작하세요.",
+  },
+  {
+    icon: Palette,
+    title: "Tailwind CSS v4",
+    description: "유틸리티 클래스와 CSS 변수 기반 디자인 토큰을 제공합니다.",
+  },
+  {
+    icon: Boxes,
+    title: "shadcn/ui",
+    description: "복사해서 소유하는 접근성 높은 UI 컴포넌트 모음입니다.",
+  },
+  {
+    icon: FileCheck,
+    title: "React Hook Form + Zod",
+    description: "타입 안전한 스키마 기반 폼 유효성 검사 예제를 포함합니다.",
+  },
+  {
+    icon: Moon,
+    title: "다크 모드",
+    description: "next-themes로 라이트/다크/시스템 테마를 지원합니다.",
+  },
+  {
+    icon: Smartphone,
+    title: "반응형 레이아웃",
+    description: "모바일 슬라이드 메뉴를 포함한 반응형 헤더를 제공합니다.",
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* 히어로 섹션 */}
+      <section className="container mx-auto flex flex-col items-center gap-6 px-4 py-20 text-center md:py-32">
+        <Badge variant="secondary">Next.js 15 · React 19 · Tailwind v4</Badge>
+        <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          모던 웹 개발을 위한
+          <br />
+          <span className="text-primary">스타터킷</span>
+        </h1>
+        <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
+          검증된 기술 스택과 예제 페이지로 새 프로젝트를 몇 분 만에 시작하세요.
+        </p>
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <Link
+            href="/dashboard"
+            className={cn(buttonVariants({ size: "lg" }), "px-5")}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            대시보드 보기
+            <ArrowRight />
+          </Link>
+          <Link
+            href="/form"
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-5")}
           >
-            Read our docs
-          </a>
+            폼 예제 보기
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </section>
+
+      {/* 기능 소개 섹션 */}
+      <section className="border-t bg-muted/40">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="mb-10 text-center">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+              포함된 기능
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              바로 사용할 수 있는 구성 요소들입니다.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => (
+              <FeatureCard key={feature.title} {...feature} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
