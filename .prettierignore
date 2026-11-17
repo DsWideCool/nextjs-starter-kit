@@ -1,0 +1,10 @@
+# 빌드 결과물
+.next
+out
+build
+node_modules
+
+# shadcn이 생성한 컴포넌트는 원본 그대로 유지
+src/components/ui
+
+package-lock.json
